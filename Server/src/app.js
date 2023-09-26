@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 
+const router = require('./routes/index')
 const app = express();
 
 app.use((req, res, next) => {
@@ -18,6 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use("/rickandmorty", router);
 app.use(morgan('dev'));
 
 module.exports = app;
