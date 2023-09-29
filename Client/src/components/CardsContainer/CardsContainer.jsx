@@ -9,8 +9,7 @@ const CardsContainer = () => {
   return (
     <div className={style.container}>
       {characters.map(({ id, name, species, gender, origin, image }) => (
-        <Card
-          id={id}
+        <Card          
           name={name}
           species={species}
           gender={gender}
