@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import style from './Cards.module.css';
+import style from './CardsContainer.module.css';
 import Card from '../Card/Card.jsx';
 
 const CardsContainer = () => {

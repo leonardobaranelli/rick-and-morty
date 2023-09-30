@@ -1,9 +1,15 @@
-import './App.css';
+import style from './App.module.css';
+import { About, CardsContainer } from './components';
+import {  Route, Routes } from 'react-router-dom';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Rick And Morty App</h1>      
-    </div>
+    <div className = {style.App}> 
+         <Routes>      
+            <Route path = "/home" element = {<CardsContainer />} />         
+            <Route path = "/about" element = {<About />}/>            
+         </Routes>          
+      </div>
   );
 }
 
