@@ -1,14 +1,13 @@
 import style from './App.module.css';
-import { About, CardsContainer } from './components';
-import {  Route, Routes } from 'react-router-dom';
-import SearchBar from './components/SearchBar/SearchBar';
+import { About } from './components';
+import { Route, Routes } from 'react-router-dom';
+import { Home } from './views';
 
 function App() {
   return (
     <div className = {style.App}> 
          <Routes>      
-            <Route path = "/home" element = {<SearchBar />} /> 
-            <Route path = "/home" element = {<CardsContainer />} />         
+            <Route path = "/home" element = {<Home />} />         
             <Route path = "/about" element = {<About />}/>            
          </Routes>          
       </div>
