@@ -1,0 +1,1 @@
+export const GET_CHAR_BY_ID = "GET_CHAR_BY_ID";
