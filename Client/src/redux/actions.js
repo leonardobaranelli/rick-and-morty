@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CHAR_BY_ID, GET_CHAR_DETAILS } from "./actionTypes";
+import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS } from "./actionTypes";
 
 export const getCharById = (id) => {
     return async (dispatch) => {
@@ -23,4 +23,8 @@ export const getCharDetails = (id) => {
             type: GET_CHAR_DETAILS, payload: character 
         });
     };
+};
+
+export const cleanDetails = () => {
+    return { type: CLEAN_DETAILS };
 };

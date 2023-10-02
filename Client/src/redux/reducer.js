@@ -1,4 +1,4 @@
-import { GET_CHAR_BY_ID, GET_CHAR_DETAILS } from "./actionTypes";
+import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS } from "./actionTypes";
 
 const initialState = { 
     characters: [],
@@ -13,7 +13,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         
         case GET_CHAR_DETAILS:            
             return {...state, 
-                characterDetails: payload};      
+                characterDetails: payload};    
+                
+        case CLEAN_DETAILS:
+            return {...state,
+                characterDetails: {}};
         
         default:
             return {...state};
