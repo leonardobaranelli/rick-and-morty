@@ -1,0 +1,9 @@
+.mainContainer{
+    margin: auto;
+    background-color: #142d4c;;
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    width:  fit-content;
+    padding: 1em;
+    border-radius: 10px;
+    display: flex;    
+}
