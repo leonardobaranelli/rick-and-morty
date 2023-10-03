@@ -1,7 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import style from './CardsContainer.module.css';
-import Card from '../Card/Card.jsx';
+import { useSelector } from 'react-redux';
+import { Card } from '../index';
 
 const CardsContainer = () => {
   const characters = useSelector((state) => state.characters);
