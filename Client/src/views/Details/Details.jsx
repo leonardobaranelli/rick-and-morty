@@ -19,8 +19,6 @@ const Details = () => {
          };
       }, [dispatch, id]);
 
-      
-
     return(
         <div>
         {name ? (
