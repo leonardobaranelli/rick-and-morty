@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addFav, removeFav } from "../../redux/actions";
 
-const Card = ({ id, name, species, gender, origin, image }) => {
+const Card = ({ id, name, status, species, gender, origin, image }) => {
 
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
@@ -16,7 +16,7 @@ const Card = ({ id, name, species, gender, origin, image }) => {
       dispatch(removeFav(id));
     } else {
       setIsFav(true);
-      dispatch(addFav({ name, species, gender, origin, image, id }));
+      dispatch(addFav({ id, name, status, species, gender, origin, image}));
     }
   };
 
