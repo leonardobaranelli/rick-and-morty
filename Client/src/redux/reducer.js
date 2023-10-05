@@ -3,6 +3,8 @@ import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS } from "./actionTypes";
 const initialState = { 
     characters: [],
     characterDetails: {},
+    myFavorites: [],
+    charactersFav: [],
 };
   
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -18,6 +20,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
         case CLEAN_DETAILS:
             return {...state,
                 characterDetails: {}};
+
+        case ADD_FAV:
+            return {...state,
+                myFavorites: payload,
+                allCharactersFav: payload
+            };        
         
         default:
             return {...state};
