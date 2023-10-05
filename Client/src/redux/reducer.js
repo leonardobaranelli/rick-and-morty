@@ -1,4 +1,4 @@
-import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS } from "./actionTypes";
+import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS, ADD_FAV, REMOVE_FAV } from "./actionTypes";
 
 const initialState = { 
     characters: [],
@@ -24,9 +24,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
         case ADD_FAV:
             return {...state,
                 myFavorites: payload,
-                allCharactersFav: payload
+                charactersFav: payload
             };        
         
+        case REMOVE_FAV:
+            return {
+                ...state,
+                myFavorites: payload,
+                charactersFav: payload
+            };
+
         default:
             return {...state};
     };

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV } from "./actionTypes";
+import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV, REMOVE_FAV } from "./actionTypes";
 
 export const getCharById = (id) => {
     return async (dispatch) => {
@@ -38,4 +38,15 @@ export const addFav = (character) => {
             payload: response.data,      
       });
    };
+};
+
+export const removeFav = (id) => {
+    const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
+    return async (dispatch) => {
+        const response = await axios.delete(endpoint)
+        dispatch({
+            type: REMOVE_FAV,
+            payload: response.data,
+        });
+    };
 };
