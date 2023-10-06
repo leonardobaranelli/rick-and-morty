@@ -1,5 +1,5 @@
 import style from './App.module.css';
-import { About, NavBar } from './components';
+import { About, NavBar, Favorites } from './components';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import { Home, Landing, Details } from './views';
 
@@ -15,7 +15,8 @@ function App() {
             <Route path = "/" element = {<Landing />} />
             <Route path = "/home" element = {<Home />} />    
             <Route path = "/details/:id" element = {<Details />} />    
-            <Route path = "/about" element = {<About />}/>                         
+            <Route path = "/about" element = {<About />}/>                
+            <Route path = "/favorites" element = {<Favorites />}/>         
          </Routes>          
       </div>
   );
