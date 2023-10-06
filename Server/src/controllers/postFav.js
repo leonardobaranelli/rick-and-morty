@@ -2,6 +2,7 @@ const { Favorite } = require('../db');
 
 module.exports = async(req, res) => {
   try {
+    
     const {id, name, status, species, gender, origin, image} = req.body;
     
     await Favorite.findOrCreate({where: {id, name, status, species, gender, origin, image}});

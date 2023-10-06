@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-app.use("/rickandmorty", router);
 app.use(morgan('dev'));
+app.use("/rickandmorty", router);
 
 module.exports = app;
