@@ -1,4 +1,4 @@
-import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS, ADD_FAV, REMOVE_FAV } from "./actionTypes";
+import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS, ADD_FAV, REMOVE_FAV, ORDER } from "./actionTypes";
 
 const initialState = { 
     characters: [],
@@ -33,6 +33,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 myFavorites: payload,
                 charactersFav: payload
             };
+
+        case ORDER:
+            const allCharactersFavCopy = [...state.charactersFav];
+            return {
+                ...state,
+                myFavorites: 
+                    payload === 'A'
+                    ? allCharactersFavCopy.sort((a,b) => a.id - b.id) 
+                    : allCharactersFavCopy.sort((a,b) => b.id - a.id) 
+            };    
 
         default:
             return {...state};
