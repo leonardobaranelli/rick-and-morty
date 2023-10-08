@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV, REMOVE_FAV, ORDER } from "./actionTypes";
+import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV, REMOVE_FAV, ORDER, FILTER } from "./actionTypes";
 
 export const getCharById = (id) => {
     return async (dispatch) => {
@@ -53,4 +53,8 @@ export const removeFav = (id) => {
 
 export const orderCards = (order) => {
     return {type: ORDER, payload: order}
+}
+
+export const filterCards = (gender) => {
+    return {type: FILTER, payload: gender}
 }
