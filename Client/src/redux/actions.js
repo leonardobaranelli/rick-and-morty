@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV, REMOVE_FAV, ORDER, FILTER } from "./actionTypes";
+import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV, REMOVE_FAV, ORDER, FILTER, LOGIN_SUCCESS } from "./actionTypes";
 
 export const getCharById = (id) => {
     return async (dispatch) => {
@@ -58,3 +58,8 @@ export const orderCards = (order) => {
 export const filterCards = (gender) => {
     return {type: FILTER, payload: gender}
 }
+
+export const loginSuccess = (accessToken) => ({
+  type: LOGIN_SUCCESS,
+  payload: { accessToken },
+});

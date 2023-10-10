@@ -1,10 +1,24 @@
-import { CLEAN_DETAILS, GET_CHAR_BY_ID, GET_CHAR_DETAILS, ADD_FAV, REMOVE_FAV, ORDER, FILTER } from "./actionTypes";
+import {
+    CLEAN_DETAILS,
+    GET_CHAR_BY_ID,
+    GET_CHAR_DETAILS,
+    ADD_FAV,
+    REMOVE_FAV,
+    ORDER,
+    FILTER,
+    LOGIN_SUCCESS,
+    
+} from "./actionTypes";
 
 const initialState = { 
     characters: [],
     characterDetails: {},
     myFavorites: [],
     charactersFav: [],
+    login: {
+        accessToken: null,
+        error: null,
+    ,
 };
   
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -54,6 +68,16 @@ const rootReducer = (state = initialState, { type, payload }) => {
                     char => char.gender === payload )
             };        
             
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                login: {
+                ...state.login,
+                accessToken: payload.accessToken,
+                error: null,
+                },
+            };
+
         default:
             return {...state};
     };
