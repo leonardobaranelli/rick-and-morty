@@ -1,4 +1,4 @@
-//import { loginSuccess, loginFailure } from "../../redux/actions"
+import { loginSuccess, loginFailure } from "../../redux/actions"
 
 export const login = (userData) => (dispatch) => {
     const { email, password } = userData;

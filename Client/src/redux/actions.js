@@ -1,5 +1,16 @@
 import axios from "axios";
-import { GET_CHAR_BY_ID, GET_CHAR_DETAILS, CLEAN_DETAILS, ADD_FAV, REMOVE_FAV, ORDER, FILTER, LOGIN_SUCCESS } from "./actionTypes";
+import { 
+    GET_CHAR_BY_ID,
+    GET_CHAR_DETAILS,
+    CLEAN_DETAILS,
+    ADD_FAV,
+    REMOVE_FAV,
+    ORDER,
+    FILTER,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+
+} from "./actionTypes";
 
 export const getCharById = (id) => {
     return async (dispatch) => {
@@ -62,4 +73,9 @@ export const filterCards = (gender) => {
 export const loginSuccess = (accessToken) => ({
   type: LOGIN_SUCCESS,
   payload: { accessToken },
+});
+
+export const loginFailure = (error) => ({
+  type: LOGIN_FAILURE,
+  payload: { error },
 });

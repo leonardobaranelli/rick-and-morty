@@ -7,7 +7,8 @@ import {
     ORDER,
     FILTER,
     LOGIN_SUCCESS,
-    
+    LOGIN_FAILURE,
+
 } from "./actionTypes";
 
 const initialState = { 
@@ -77,6 +78,15 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 error: null,
                 },
             };
+        case LOGIN_FAILURE:
+            return {
+              ...state,
+              login: {
+                ...state.login,
+                accessToken: null,
+                error: action.payload.error,
+              },
+            };    
 
         default:
             return {...state};
