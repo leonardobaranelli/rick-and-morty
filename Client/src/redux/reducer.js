@@ -19,7 +19,7 @@ const initialState = {
     login: {
         accessToken: null,
         error: null,
-    ,
+    },
 };
   
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -78,13 +78,14 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 error: null,
                 },
             };
+
         case LOGIN_FAILURE:
             return {
               ...state,
               login: {
                 ...state.login,
                 accessToken: null,
-                error: action.payload.error,
+                error: payload.error,
               },
             };    
 
