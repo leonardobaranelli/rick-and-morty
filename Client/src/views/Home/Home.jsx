@@ -1,16 +1,7 @@
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { SearchBar } from "../../components";
 
-
 const Home = () => {
-
-    // const dispatch = useDispatch();
-
-    // useEffect(() => {
-    // }, [dispatch]);
-
     return (
         <div>            
             <SearchBar />
