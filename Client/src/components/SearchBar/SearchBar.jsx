@@ -20,7 +20,7 @@ export default function SearchBar() {
   return (
     <div className={style.mainContainer}>
       <input className={style.input} type="search" onChange={event => handleChange(event)} placeholder="Search a character" />     
-      <button className={style.button} onClick={handleSearch}> search </button>
+      <button className={style.button} onClick={handleSearch}> SEARCH </button>
     </div>
   );
 }

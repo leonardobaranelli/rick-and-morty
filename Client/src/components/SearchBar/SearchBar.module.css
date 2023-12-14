@@ -1,9 +1,62 @@
-.mainContainer{
-    margin: auto;
-    background-color: #142d4c;;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    width:  fit-content;
-    padding: 1em;
-    border-radius: 10px;
-    display: flex;    
-}
+:root {
+    --color-primary: #b7ac00;
+    --color-secondary: #e6d100;    
+    --color-text: #000000;
+    --color-link-hover: #fffbf3;
+    --color-placeholder: rgb(46, 42, 42);
+  }
+  
+  .mainContainer {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 15px;
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 21em 10px;
+    padding: 0.4em 1.1em 0.4em;
+    transition: all 0.15s ease;
+  }
+  
+  .mainContainer:hover {
+    background-color: var(--color-secondary);
+    transform: scale(1.01);
+  }
+  
+  .input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 16px;
+    padding: 0.5em;
+    margin-right: 10px;
+  }
+  
+  .input::placeholder {
+    color: var(--color-placeholder);
+  }
+
+  .input:focus {
+    outline: none;
+  }
+  
+  .button {
+    font: italic bold 16px/1.5 "Calibri", sans-serif;    
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;    
+    font-size: 21px;    
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    color: var(--color-link-hover)
+  }
+  

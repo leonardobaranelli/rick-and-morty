@@ -1,7 +1,6 @@
 :root {
     --color-primary: #b7ac00;
-    --color-secondary: #e6d100;
-    --color-text: #fff31d;
+    --color-secondary: #e6d100;    
     --color-link: #000000;
     --color-link-hover: #fffbf3;
 }
@@ -9,8 +8,7 @@
 .mainContainer {         
     background-color: var(--color-primary);
     border: none;
-    border-radius: 15px;
-    color: var(--color-text);
+    border-radius: 15px;    
     cursor: pointer;
     display: flex;
     flex-direction: row;
