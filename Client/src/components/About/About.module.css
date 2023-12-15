@@ -1,0 +1,26 @@
+:root {    
+    --color-secondary: #e6d100;   
+    --color-text: white;
+}
+
+.mainContainer {
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 15px;
+    color: var(--color-text);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;    
+    justify-content: space-around;
+    align-items: center;
+    margin: 7.5em 14em;
+    padding: 0.4em 1.1em 0.4em;
+    transition: all 0.15s ease;
+    font: italic bold 16px/1.5 "Calibri", sans-serif;
+    color: var(--color-text);
+    font-size: 1.25em;         
+}
+
+.mainContainer:hover {    
+    transform: scale(1.01);
+}  
