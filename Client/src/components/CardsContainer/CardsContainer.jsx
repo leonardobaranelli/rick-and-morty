@@ -7,7 +7,7 @@ const CardsContainer = () => {
   const characters = useSelector((state) => state.characters);
 
   return (
-    <div className={style.container}>
+    <div className={style.mainContainer}>
       {characters.map(({ id, name, status, species, gender, origin, image }) => (
         <Card    
           id={id}      

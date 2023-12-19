@@ -1,0 +1,8 @@
+.mainContainer {    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+    gap: 2em;
+    margin: 2.2em;
+    margin-left: 5em;
+    justify-content: space-around;    
+}
