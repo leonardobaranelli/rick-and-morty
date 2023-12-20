@@ -47,7 +47,7 @@
   
   .button {
     font: italic bold 16px/1.5 "Calibri", sans-serif;    
-    background-color: var(--color-secondary);
+    background-color: rgba(var(--color-secondary), 0);   
     color: var(--color-text);
     border: none;
     border-radius: 5px;
