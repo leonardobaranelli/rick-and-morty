@@ -1,9 +1,59 @@
-.container{
-    background-color:rgb(18, 161, 18);
-    width:  fit-content;
+.mainContainer {         
+    font: italic bold 16px/1.5 "Calibri", sans-serif;
+    background-color: var(--color-primary);
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
     padding: 1em;
-    border-radius: 10px;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     display: flex;
     flex-direction: column;
+    border: none;        
+    font-size: 18px;
+    margin: 0 0.3em 10px;
+    padding: 0.4em 1.1em 0.4em;
+    transition: all 0.15s ease;     
+    
+    a {      
+        color: var(--color-link);
+        font-size: 21px;
+        margin-right: 10px;    
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        text-decoration: none;
+        color: var(--color-link-hover);
+    }
+
+    button {     
+        background: transparent;      
+        border: none;    
+        padding-bottom: 0.5em;
+        font-size: 18px;   
+    }
+
+    img {        
+        border-radius: 13px;   
+    }
+
+    .detailsContainer {        
+        font-weight: normal;
+        color: black;
+        
+        .detail {
+            font-weight: bold;                 
+            color: white;
+        }
+    }    
+}
+
+.mainContainer:hover {
+    background-color: var(--color-secondary);
+    transform: scale(1.01);     
+    .detail {
+        color: rgb(153, 79, 163);
+    }    
 }

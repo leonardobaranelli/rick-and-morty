@@ -26,15 +26,17 @@ const Card = ({ id, name, status, species, gender, origin, image }) => {
   }, [myFavorites, id]);
 
   return (
-    <div className={style.container}>
+    <div className={style.mainContainer}>
       <button onClick={handleFavorite}>{isFav ? "❤️" : "🤍"}</button>      
       <img src={image} alt="Character" />
       <Link to={`/details/${id}`}>
         <h2>{name}</h2>
-      </Link>      
-      <p>{`Species: ${species}`}</p>
-      <p>{`Gender: ${gender}`}</p>
-      <p>{`Origin: ${origin}`}</p>
+      </Link>     
+      <div className={style.detailsContainer}>
+        <p>Specie: <span className={style.detail}>{species}</span></p>
+        <p>Gender: <span className={style.detail}>{gender}</span></p>
+        <p>Origin: <span className={style.detail}>{origin}</span></p>        
+      </div> 
     </div>    
   );
 };
