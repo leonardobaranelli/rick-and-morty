@@ -18,6 +18,7 @@ function Favorites() {
 
   return (
     <div>
+      <div className={style.selectContainer}>
        <select onChange={handleOrder}>
             <option value="A">Ascendent</option>
             <option value="D">Descendent</option>
@@ -29,18 +30,21 @@ function Favorites() {
             <option value="unknown">Unknown</option>
             <option value="AllCharacters">AllCharacters</option>
         </select>
-      {favorites.map(({ name, species, status, gender, origin, image, id }) => (
-        <Card
-          name={name}
-          species={species}
-          status={status}
-          gender={gender}
-          origin={origin.name}
-          image={image}
-          id={id}
-          key={id}
-        />
-      ))}
+      </div>  
+      <div className={style.CardsContainer}>        
+        {favorites.map(({ name, species, status, gender, origin, image, id }) => (
+          <Card
+            name={name}
+            species={species}
+            status={status}
+            gender={gender}
+            origin={origin}
+            image={image}
+            id={id}
+            key={id}
+          />
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,0 +1,36 @@
+.selectContainer {    
+  display: flex;
+  flex-direction: row;
+  font-size: 22px;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 21em 10px;
+
+  select, option {
+    padding: 0.4em 1.1em 0.4em;
+    background-color: var(--color-primary);
+    font: italic bold 17px/1.5 "Calibri", sans-serif;    
+    font-size: 17px; 
+    color: var(--color-text);
+    border-radius: 8px;
+    border: none;    
+    outline: none;   
+  }
+
+  select:hover {
+    transition: all 0.15s ease;
+    transform: scale(1.02);      
+    background: var(--color-secondary) !important;    
+    border: none;    
+    outline: none;   
+  }
+}
+
+.CardsContainer {    
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
+  gap: 2em;
+  margin: 2.2em;
+  margin-left: 5em;
+  justify-content: space-around;    
+}
