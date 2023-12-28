@@ -1,0 +1,39 @@
+.mainContainer {         
+    font: italic bold 16px/1.5 "Calibri", sans-serif;
+    background-color: var(--color-primary);
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 1em;
+    border-radius: 12px;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    flex-direction: column;
+    border: none;        
+    font-size: 18px;
+    margin: auto;
+    padding: 0.4em 1.1em 0.4em;
+    transition: all 0.15s ease;         
+    
+    img {        
+        border-radius: 13px;   
+    }
+
+    .detailsContainer {        
+        font-weight: normal;
+        color: black;  
+        
+        .detail {
+            font-weight: bold;                 
+            color: white;
+        }
+    }    
+}
+
+.mainContainer:hover {
+    background-color: var(--color-secondary);
+    transform: scale(1.01);     
+    .detail {
+        color: rgb(153, 79, 163);
+    }    
+}

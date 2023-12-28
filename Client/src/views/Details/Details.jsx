@@ -10,7 +10,7 @@ const Details = () => {
     const { id } = useParams();       
       
       const dispatch = useDispatch();
-      const { name, image, status, species, gender, origin } = useSelector((state) => state.characterDetails);
+      const { name, image, status, species, gender, origin, location } = useSelector((state) => state.characterDetails);
       
       useEffect(() => {
          dispatch(getCharDetails(id));
@@ -20,19 +20,20 @@ const Details = () => {
       }, [dispatch, id]);
 
     return(
-        <div>
-        {name ? (
-            <>
-               <img src = {image} alt='image'/>
-               <h2>{name}</h2>
-               <h2>{status}</h2>
-               <h2>{species}</h2>
-               <h2>{gender}</h2>         
-               <h2>{origin?.name}</h2>    
-            </>
-         ) : (       
-         <h3>Loading...</h3>
-         )}
+         <div className={style.mainContainer}>
+            {name ? (            
+               <div className={style.detailsContainer}>               
+                  <img src = {image} alt='image'/>
+                  <h2><span className={style.detail}>{name}</span></h2>
+                  <p>Status: <span className={style.detail}>{status}</span></p>
+                  <p>Specie: <span className={style.detail}>{species}</span></p>
+                  <p>Gender: <span className={style.detail}>{gender}</span></p>
+                  <p>Origin: <span className={style.detail}>{origin}</span></p>        
+                  <p>Location: <span className={style.detail}>{location}</span></p>                  
+               </div>             
+            ) : (       
+               <h3>Loading...</h3>
+            )}
         </div>            
     );
 }
