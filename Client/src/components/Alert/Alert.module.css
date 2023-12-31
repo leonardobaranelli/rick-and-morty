@@ -1,0 +1,25 @@
+.alert {
+    font: italic bold 17px/1.5 "Calibri", sans-serif;
+    padding: 10px;
+    border-radius: 5em;
+    margin: 0 30em 10px;        
+    opacity: 0;     
+    animation: fadeInOut 4s ease-out; 
+  }
+  
+  .success {
+    background-color: #4caf50;
+    color: black;
+  }
+  
+  .error {
+    background-color: #f44336;
+    color: black;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+  }
