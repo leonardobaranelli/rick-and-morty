@@ -4,5 +4,6 @@ import CardsContainer from './CardsContainer/CardsContainer';
 import SearchBar from "./SearchBar/SearchBar";
 import NavBar from "./NavBar/NavBar";
 import Favorites from "./Favorites/Favorites"
+import Alert from './Alert/Alert';
 
-export { About, Card, CardsContainer, SearchBar, NavBar, Favorites };
+export { Alert, About, Card, CardsContainer, SearchBar, NavBar, Favorites };
