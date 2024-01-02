@@ -31,12 +31,12 @@ const CreateUser = ({login}) => {
     return(
         <form onSubmit={submitHandler}>
             <div>
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">Email</label>
                 <input name="email" type="text" onChange={handleChange}></input>     
                 <p>{errors.email}</p>           
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Password</label>
                 <input name="password" type="text" onChange={handleChange}></input>                
                 <p>{errors.password}</p>           
             </div>
