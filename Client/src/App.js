@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className = {style.App}> 
-    {pathname !== "/" && <NavBar /> }
+    {pathname !== "/" && pathname !== "/createUser" && <NavBar /> }
          <Routes>      
             <Route path = "/" element = {<Landing />} />
             <Route path = "/home" element = {<Home />} />    
