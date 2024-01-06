@@ -6,37 +6,37 @@
 }
 
 .mainContainer {         
-    background-color: var(--color-primary);
-    border: none;
-    border-radius: 15px;    
-    cursor: pointer;
+    background-color: transparent;   
     display: flex;
-    flex-direction: row;
-    font-size: 18px;
-    justify-content: space-around;
-    align-items: center; 
-    margin: 2em 20em 10px;
-    padding: 0.4em 1.1em 0.4em;
-    transition: all 0.15s ease; 
-
-    a {  
-        font: italic bold 16px/1.5 "Calibri", sans-serif;
-        color: var(--color-link);
-        font-size: 21px;
-        margin-right: 10px;    
-        text-decoration: none;
-    }
+    flex-direction: column;
+    align-items: center;         
     
-    a:hover {
-        text-decoration: underline;
-        color: var(--color-link-hover);
-        text-decoration: none;
+    .createUser {
+        background-color: var(--color-primary);
+        margin-top: 3em;
+        padding: 0.4em 1.1em 0.4em;
+        border: none;
+        border-radius: 15px;    
+        cursor: pointer;
+        
+        a, p {  
+            font: italic bold 16px/1.5 "Calibri", sans-serif;        
+            color: var(--color-link);
+            font-size: 21px;
+            margin-right: 10px;    
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: var(--color-link-hover);
+            text-decoration: none;
+        }
     }
-}
 
-.mainContainer:active,
-.mainContainer:hover {
-    background-color: var(--color-secondary);
-    transform: scale(1.01);     
+    .createUser:hover {
+        background-color: var(--color-secondary);
+        transform: scale(1.01);     
+    }   
 }
 
