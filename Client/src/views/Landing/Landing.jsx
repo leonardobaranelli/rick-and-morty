@@ -1,6 +1,6 @@
 import style from './Landing.module.css';
+import Login from '../../components/Login/Login';
 import { Link } from "react-router-dom";
-import Login from '../Login/Login';
 
 const Landing = () => {
     return (
@@ -8,7 +8,7 @@ const Landing = () => {
             <Login />
             <div className={style.createUser}>
                 <p>Don't you have an account ?</p>
-                <Link to ="/createUser">CREATE ACCOUNT</Link>
+                <Link to ="/createAccount">CREATE ACCOUNT</Link>
             </div>    
         </div>
     )
