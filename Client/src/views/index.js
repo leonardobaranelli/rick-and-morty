@@ -1,6 +1,6 @@
 import Home from "./Home/Home";
 import Landing from "./Landing/Landing";
 import Details from "./Details/Details";
-import CreateUser from "./CreateUser/CreateUser";
+import CreateAccount from "./CreateAccount/CreateAccount";
 
-export { Details, Home, Landing, CreateUser };
+export { Details, Home, Landing, CreateAccount };

@@ -6,8 +6,7 @@ const Nav = () => {
    return (      
       <nav className={style.mainContainer}>          
          <Link to ="/home">HOME</Link><br/>         
-         <Link to ="/favorites">FAVORITES</Link><br/>
-         <Link to ="/createUser">CREATE USER</Link>
+         <Link to ="/favorites">FAVORITES</Link><br/>         
          <Link to ="/about">ABOUT</Link><br/>
       </nav>      
    );
