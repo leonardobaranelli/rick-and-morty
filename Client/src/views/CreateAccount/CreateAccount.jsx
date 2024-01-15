@@ -1,6 +1,6 @@
 import style from "./CreateAccount.module.css";
 import { useState } from "react";
-import { createAccount, validate } from "../../components/helpers";
+import { createAccount, validate } from "../../helpers";
 import { Alert } from "../../components";
 
 const CreateAccount = () => {
@@ -31,24 +31,14 @@ const CreateAccount = () => {
 
     const submitHandler = async (event) => {
         event.preventDefault();
-    
+      
         try {
-            const response = await createAccount(userData);
-    
-            if (response !== undefined) {
-                if (response) {
-                    showAlert('Account created successfully!', 'success');
-                } else {
-                    showAlert("Account already exists", 'error');
-                }
-            } else {
-                showAlert('Unexpected response from the server', 'error');
-            }
+          await createAccount(userData);
+          showAlert('Account created successfully!', 'success');
         } catch (error) {
-            showAlert(`Error: ${error}`, 'error');
+          showAlert(error === 'Unexpected error occurred' ? 'Unexpected response from the server' : error, 'error');
         }
-    };
-    
+    };   
     
     return(
         <>
