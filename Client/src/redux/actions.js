@@ -7,9 +7,8 @@ import {
     REMOVE_FAV,
     ORDER,
     FILTER,
-    LOGIN_SUCCESS,
-    LOGIN_FAILURE,
-
+    LOGIN,    
+    LOGOUT,
 } from "./actionTypes";
 
 export const getCharById = (id) => {
@@ -70,12 +69,12 @@ export const filterCards = (gender) => {
     return {type: FILTER, payload: gender}
 }
 
-export const loginSuccess = (accessToken) => ({
-  type: LOGIN_SUCCESS,
-  payload: { accessToken },
+export const login = (access, error) => ({
+  type: LOGIN,
+  payload: { access, error },
 });
 
-export const loginFailure = (error) => ({
-  type: LOGIN_FAILURE,
-  payload: { error },
-});
+export const logout = () => {    
+    localStorage.setItem("access", false);    
+    return { type: LOGOUT };
+};

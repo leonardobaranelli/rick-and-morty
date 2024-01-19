@@ -6,9 +6,8 @@ import {
     REMOVE_FAV,
     ORDER,
     FILTER,
-    LOGIN_SUCCESS,
-    LOGIN_FAILURE,
-
+    LOGIN,
+    LOGOUT,
 } from "./actionTypes";
 
 const initialState = { 
@@ -17,7 +16,7 @@ const initialState = {
     myFavorites: [],
     charactersFav: [],
     login: {
-        accessToken: null,
+        access: false,
         error: null,
     },
 };
@@ -69,25 +68,37 @@ const rootReducer = (state = initialState, { type, payload }) => {
                     char => char.gender === payload )
             };        
             
-        case LOGIN_SUCCESS:
+        case LOGIN:
+            if(payload.access){
+                return {
+                    ...state,
+                    login: {
+                        ...state.login,
+                        access: true,
+                        error: null,
+                    },
+                };
+            }
+            else {
+                return {
+                    ...state,
+                    login: {
+                        ...state.login,
+                        access: false,
+                        error: payload.error,
+                    },
+                };    
+            }
+            
+        case LOGOUT:
             return {
                 ...state,
                 login: {
-                ...state.login,
-                accessToken: payload.accessToken,
-                error: null,
+                    ...state.login,
+                    access: false,
+                    error: null,
                 },
-            };
-
-        case LOGIN_FAILURE:
-            return {
-              ...state,
-              login: {
-                ...state.login,
-                accessToken: null,
-                error: payload.error,
-              },
-            };    
+            };  
 
         default:
             return {...state};
