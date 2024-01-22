@@ -1,4 +1,4 @@
-export const validate = (userData, errors, setErrors) => {
+export const _validate = (userData, errors, setErrors) => {
   const { email, password } = userData;
   const newErrors = {};
 

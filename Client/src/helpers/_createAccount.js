@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const createAccount = async (userData) => {
+export const _createAccount = async (userData) => {
     const { email, password } = userData;
     const URL = 'http://localhost:3001/rickandmorty/auth';
   
