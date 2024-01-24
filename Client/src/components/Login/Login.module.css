@@ -1,0 +1,49 @@
+form {
+    font: italic bold 16px/1.5 "Calibri", sans-serif;
+    background-color: var(--color-secondary);
+    flex-direction: column;        
+    color: white;    
+    max-width: 300px;     
+    border-radius: 15px; 
+    margin: auto;
+    margin-top: 7em;       
+    padding: 0.4em 1.1em 0.4em;    
+}
+
+input {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;       
+}
+
+input:focus {
+    outline: 2.5px solid rgb(153, 79, 163);
+}
+
+p {    
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+button {
+    font: italic bold 11.5px/1.5 "Calibri", sans-serif;
+    border-radius: 0.7em;
+    background-color: #45a049;
+    color: white;
+    padding: 10px;
+    border: none;    
+}
+
+button:hover {
+    background-color: #4caf50;
+}
+
+button:disabled {
+    background-color: #a8a5a5;
+    cursor: not-allowed;
+}
+
