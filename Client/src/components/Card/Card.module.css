@@ -38,16 +38,11 @@
     img {        
         border-radius: 13px;   
     }
-
-    .detailsContainer {        
-        font-weight: normal;
-        color: black;
-        
-        .detail {
-            font-weight: bold;                 
-            color: white;
-        }
-    }    
+   
+    .detail {
+        font-weight: bold;                 
+        color: white;
+    }        
 }
 
 .mainContainer:hover {

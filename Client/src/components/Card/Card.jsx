@@ -8,6 +8,7 @@ const Card = ({ id, name, status, species, gender, origin, image }) => {
 
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
+  const userId = useSelector((state) => state.userId); 
   const [isFav, setIsFav] = useState(false);
 
   const handleFavorite = () => {
@@ -16,7 +17,7 @@ const Card = ({ id, name, status, species, gender, origin, image }) => {
       dispatch(removeFav(id));
     } else {
       setIsFav(true);
-      dispatch(addFav({ id, name, status, species, gender, origin, image}));
+      dispatch(addFav({ id, name, status, species, gender, origin, image }, userId));
     }
   };
 
@@ -32,10 +33,10 @@ const Card = ({ id, name, status, species, gender, origin, image }) => {
       <Link to={`/details/${id}`}>
         <h2>{name}</h2>
       </Link>     
-      <div className={style.detailsContainer}>
-        <p>Specie: <span className={style.detail}>{species}</span></p>
-        <p>Gender: <span className={style.detail}>{gender}</span></p>
-        <p>Origin: <span className={style.detail}>{origin}</span></p>        
+      <div>
+        <p style={{ color: 'black' }}>Specie: <span className={style.detail}>{species}</span></p>
+        <p style={{ color: 'black' }}>Gender: <span className={style.detail}>{gender}</span></p>
+        <p style={{ color: 'black' }}>Origin: <span className={style.detail}>{origin}</span></p>        
       </div> 
     </div>    
   );

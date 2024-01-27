@@ -22,14 +22,14 @@ const Details = () => {
     return(
          <div className={style.mainContainer}>
             {name ? (            
-               <div className={style.detailsContainer}>               
+               <div>               
                   <img src = {image} alt='image'/>
                   <h2><span className={style.detail}>{name}</span></h2>
-                  <p>Status: <span className={style.detail}>{status}</span></p>
-                  <p>Specie: <span className={style.detail}>{species}</span></p>
-                  <p>Gender: <span className={style.detail}>{gender}</span></p>
-                  <p>Origin: <span className={style.detail}>{origin}</span></p>        
-                  <p>Location: <span className={style.detail}>{location}</span></p>                  
+                  <p style={{ color: 'black' }}>Status: <span className={style.detail}>{status}</span></p>
+                  <p style={{ color: 'black' }}>Specie: <span className={style.detail}>{species}</span></p>
+                  <p style={{ color: 'black' }}>Gender: <span className={style.detail}>{gender}</span></p>
+                  <p style={{ color: 'black' }}>Origin: <span className={style.detail}>{origin}</span></p>        
+                  <p style={{ color: 'black' }}>Location: <span className={style.detail}>{location}</span></p>                  
                </div>             
             ) : (       
                <h3>Loading...</h3>
