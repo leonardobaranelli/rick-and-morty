@@ -1,4 +1,6 @@
 const axios = require("axios");
+const { _handleServerError, CustomError } = require('../helpers/_errorHandler');
+
 const URL = "https://rickandmortyapi.com/api/character";
 
 const getCharById = async (req, res) => {
@@ -20,7 +22,11 @@ const getCharById = async (req, res) => {
       ? res.status(200).json(character)
       : res.status(404).json({ error: "Not found" });
   } catch (error) {
-    res.status(500).json({ message: error });
+    if (error instanceof CustomError) {
+      _handleServerError(res, error);
+    } else {
+      _handleServerError(res, new CustomError('Internal Server Error', 500));
+    }
   }
 };
 

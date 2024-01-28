@@ -1,5 +1,5 @@
 const { User } = require("../db");
-const { handleServerError, CustomError } = require('../helpers/errorHandler');
+const { _handleServerError, CustomError } = require('../helpers/_errorHandler');
 const bcrypt = require("bcrypt");
 
 const postAccount = async (req, res) => {
@@ -23,9 +23,9 @@ const postAccount = async (req, res) => {
     return res.status(201).json({ account: newAccount });
   }  catch (error) {
     if (error instanceof CustomError) {
-      handleServerError(res, error);
+      _handleServerError(res, error);
     } else {
-      handleServerError(res, new CustomError('Internal Server Error', 500));
+      _handleServerError(res, new CustomError('Internal Server Error', 500));
     }
   }
 };

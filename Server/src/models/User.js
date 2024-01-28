@@ -1,7 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  sequelize.define('User', {
+  const User = sequelize.define('User', {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -22,4 +22,18 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
   }, { timestamps: false });
+
+  User.associate = (models) => {
+    User.belongsToMany(models.Favorite, { through: 'user_favorite' });
+  };
+  
+  User.prototype.addFavorite = async function (favorite) {    
+    const existingAssociation = await this.hasFavorite(favorite);
+    
+    if (!existingAssociation) {      
+      await this.addFavorites(favorite);
+    }
+  };  
+
+  return User;
 };

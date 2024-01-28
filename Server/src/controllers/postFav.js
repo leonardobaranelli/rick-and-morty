@@ -1,17 +1,27 @@
-const { Favorite } = require('../db');
+const { Favorite, User } = require('../db');
+const { _handleServerError, CustomError } = require('../helpers/_errorHandler');
 
-module.exports = async(req, res) => {
-  try {
+module.exports = async (req, res) => {
+  try {    
+    const { id, name, status, species, gender, origin, image, userId } = req.body;
     
-    const {id, name, status, species, gender, origin, image} = req.body;
-    
-    await Favorite.findOrCreate({where: {id, name, status, species, gender, origin, image}});
+    const [favorite, created] = await Favorite.findOrCreate({
+      where: { id },
+      defaults: { name, status, species, gender, origin, image },
+    });
 
-    const allFavorites = await Favorite.findAll();
+    const user = await User.findByPk(userId);
+    
+    if (created) await user.addFavorite(favorite);      
+    
+    const allFavorites = await user.getFavorites(); 
+    
     return res.json(allFavorites);
-
   } catch (error) {
-
-    return res.status(500).send(error.message)
+    if (error instanceof CustomError) {
+      _handleServerError(res, error);
+    } else {
+      _handleServerError(res, new CustomError('Internal Server Error', 500));
+    }
   }
-}
+};

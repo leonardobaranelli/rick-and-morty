@@ -1,5 +1,5 @@
 const { User } = require("../db");
-const { handleServerError, CustomError } = require('../helpers/errorHandler');
+const { _handleServerError, CustomError } = require('../helpers/_errorHandler');
 const bcrypt = require('bcrypt');
 
 const login = async (req, res) => {
@@ -19,16 +19,16 @@ const login = async (req, res) => {
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (isValidPassword) {
-      return res.json({ access: true });
+      return res.json({ access: true, userId: user.id });
     } else {
       return res.status(403).json({ error: "Incorrect password" });
     }
 
   } catch (error) {
     if (error instanceof CustomError) {
-      handleServerError(res, error);
+      _handleServerError(res, error);
     } else {
-      handleServerError(res, new CustomError('Internal Server Error', 500));
+      _handleServerError(res, new CustomError('Internal Server Error', 500));
     }
   }
 };
