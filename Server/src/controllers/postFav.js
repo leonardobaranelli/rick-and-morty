@@ -5,14 +5,19 @@ module.exports = async (req, res) => {
   try {    
     const { id, name, status, species, gender, origin, image, userId } = req.body;
     
+    if (name === "_login") {
+      const user = await User.findByPk(userId);
+      const allFavorites = await user.getFavorites();     
+      return res.json(allFavorites);      
+    } 
+
     const [favorite, created] = await Favorite.findOrCreate({
       where: { id },
       defaults: { name, status, species, gender, origin, image },
     });
 
     const user = await User.findByPk(userId);
-    
-    if (created) await user.addFavorite(favorite);      
+    await user.addFavorite(favorite);      
     
     const allFavorites = await user.getFavorites(); 
     

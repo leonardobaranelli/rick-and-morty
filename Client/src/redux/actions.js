@@ -39,19 +39,25 @@ export const cleanDetails = () => {
     return { type: CLEAN_DETAILS };
 };
 
-export const addFav = (character) => {
+export const addFav = (character, userId) => {
     const endpoint = 'http://localhost:3001/rickandmorty/fav';
-    return async (dispatch) => {               
-        const response = await axios.post(endpoint, character)
+    return async (dispatch) => {
+        const payload = { ...character, userId };
+
+        try {
+        const response = await axios.post(endpoint, payload);
         dispatch({
             type: ADD_FAV,
-            payload: response.data,      
-        });       
-   };
+            payload: response.data,
+        });
+        } catch (error) {
+        console.error('Error adding favorite:', error);
+        }
+    };
 };
-
-export const removeFav = (id) => {
-    const endpoint = `http://localhost:3001/rickandmorty/fav/${id}`;
+  
+export const removeFav = (id, userId) => {    
+    const endpoint = `http://localhost:3001/rickandmorty/fav/${id}/${userId}`;
     return async (dispatch) => {      
         const response = await axios.delete(endpoint)
         dispatch({
@@ -69,12 +75,11 @@ export const filterCards = (gender) => {
     return {type: FILTER, payload: gender}
 }
 
-export const login = (access, error) => ({
+export const login = (access, id) => ({
   type: LOGIN,
-  payload: { access, error },
+  payload: { access, id },
 });
 
-export const logout = () => {    
-    localStorage.setItem("access", false);    
+export const logout = () => {        
     return { type: LOGOUT };
 };

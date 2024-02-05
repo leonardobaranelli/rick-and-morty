@@ -10,7 +10,7 @@ const deleteFav = require('../controllers/deleteFav');
 router.get("/character/:id", getCharById);
 router.post("/login", login);
 router.post("/auth", postAccount);
-router.delete('/fav/:id', deleteFav);
+router.delete('/fav/:id/:userId', deleteFav);
 router.post('/fav', postFav);
 
 module.exports = router;

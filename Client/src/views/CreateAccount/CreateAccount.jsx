@@ -1,10 +1,14 @@
 import style from "./CreateAccount.module.css";
 import { useState } from "react";
-import { createAccount, validate } from "../../helpers";
+import { _createAccount, _validate } from "../../helpers";
+import { useNavigate } from "react-router-dom";
 import { Alert } from "../../components";
+
 
 const CreateAccount = () => {
     
+    const navigate = useNavigate();
+
     const [userData, setUserData] = useState({
         email: "",
         password: "",
@@ -26,15 +30,17 @@ const CreateAccount = () => {
         const value = event.target.value;
     
         setUserData({...userData, [property] : value});          
-        validate({...userData, [property] : value}, errors, setErrors); 
+        _validate({...userData, [property] : value}, errors, setErrors); 
     }
 
     const submitHandler = async (event) => {
         event.preventDefault();
       
         try {
-          await createAccount(userData);
-          showAlert('Account created successfully!', 'success');
+          await _createAccount(userData);
+          showAlert('Account created successfully!', 'success');          
+          await new Promise(resolve => setTimeout(resolve, 1700));
+          navigate("/");
         } catch (error) {
           showAlert(error === 'Unexpected error occurred' ? 'Unexpected response from the server' : error, 'error');
         }
@@ -54,7 +60,7 @@ const CreateAccount = () => {
                     <input name="password" type="text" onChange={handleChange}></input>                
                     <p>{errors.password}</p>           
                 </div>
-                <button>Create Account</button>
+                <button type="submit" disabled={Object.values(errors).some((error) => error !== '')}>Create Account</button>                
             </form>
         </>    
     )    

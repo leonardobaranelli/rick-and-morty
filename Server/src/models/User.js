@@ -35,5 +35,13 @@ module.exports = (sequelize) => {
     }
   };  
 
+  User.prototype.deleteFavorite = async function (favorite) {    
+    const existingAssociation = await this.hasFavorite(favorite);
+    
+    if (existingAssociation) {      
+      await this.removeFavorites(favorite);
+    }
+  };  
+
   return User;
 };

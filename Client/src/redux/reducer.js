@@ -15,9 +15,9 @@ const initialState = {
     characterDetails: {},
     myFavorites: [],
     charactersFav: [],
-    login: {
+    login: { 
         access: false,
-        error: null,
+        userId: null,
     },
 };
   
@@ -69,36 +69,25 @@ const rootReducer = (state = initialState, { type, payload }) => {
             };        
             
         case LOGIN:
-            if(payload.access){
-                return {
-                    ...state,
-                    login: {
-                        ...state.login,
-                        access: true,
-                        error: null,
-                    },
-                };
-            }
-            else {
-                return {
-                    ...state,
-                    login: {
-                        ...state.login,
-                        access: false,
-                        error: payload.error,
-                    },
-                };    
-            }
-            
-        case LOGOUT:
             return {
                 ...state,
                 login: {
-                    ...state.login,
-                    access: false,
-                    error: null,
+                access: payload.access,
+                userId: payload.id,
                 },
-            };  
+            };
+                     
+        case LOGOUT:
+            return {
+                characters: [],
+                characterDetails: {},
+                myFavorites: [],
+                charactersFav: [],
+                login: { 
+                    access: false,
+                    userId: null,
+                },
+            }; 
 
         default:
             return {...state};
