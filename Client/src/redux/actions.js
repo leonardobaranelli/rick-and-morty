@@ -10,11 +10,13 @@ import {
     LOGIN,    
     LOGOUT,
 } from "./actionTypes";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const getCharById = (id) => {
     return async (dispatch) => {
         const apiData = await axios.get(
-            `http://localhost:3001/rickandmorty/character/${id}`
+            `${process.env.BACKEND_URL}/rickandmorty/character/${id}`
         );
         const character = apiData.data;
         dispatch({
@@ -26,7 +28,7 @@ export const getCharById = (id) => {
 export const getCharDetails = (id) => {
     return async (dispatch) => {
         const apiData = await axios.get(
-            `http://localhost:3001/rickandmorty/character/${id}`
+            `${process.env.BACKEND_URL}/rickandmorty/character/${id}`
         );        
         const character = apiData.data;        
         dispatch({
@@ -40,7 +42,7 @@ export const cleanDetails = () => {
 };
 
 export const addFav = (character, userId) => {
-    const endpoint = 'http://localhost:3001/rickandmorty/fav';
+    const endpoint = `${process.env.BACKEND_URL}/rickandmorty/fav`;
     return async (dispatch) => {
         const payload = { ...character, userId };
 
@@ -57,7 +59,7 @@ export const addFav = (character, userId) => {
 };
   
 export const removeFav = (id, userId) => {    
-    const endpoint = `http://localhost:3001/rickandmorty/fav/${id}/${userId}`;
+    const endpoint = `${process.env.BACKEND_URL}/rickandmorty/fav/${id}/${userId}`;
     return async (dispatch) => {      
         const response = await axios.delete(endpoint)
         dispatch({

@@ -42,7 +42,7 @@ const CreateAccount = () => {
           await new Promise(resolve => setTimeout(resolve, 1700));
           navigate("/");
         } catch (error) {
-          showAlert(error === 'Unexpected error occurred' ? 'Unexpected response from the server' : error, 'error');
+            showAlert(error.message === 'Unexpected error occurred' ? 'Unexpected response from the server' : error.message, 'error');
         }
     };   
     

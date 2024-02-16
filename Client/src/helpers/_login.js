@@ -5,7 +5,7 @@ export const _login = (userData) => async (dispatch) => {
   
   try {
     const { email, password } = userData;
-    const URL = 'http://localhost:3001/rickandmorty/login';
+    const URL = `${BACKEND_URL}/rickandmorty/login`;
     
     const response = await axios.post(URL, { email, password });
     
