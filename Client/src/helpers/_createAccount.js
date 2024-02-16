@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const _createAccount = async (userData) => {
     const { email, password } = userData;
-    const URL = `${BACKEND_URL}/rickandmorty/auth`;
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/rickandmorty/auth`;
   
     try {
       const { data } = await axios.post(URL, { email, password }, { withCredentials: true });
@@ -10,5 +10,4 @@ export const _createAccount = async (userData) => {
     } catch (error) {
       throw error.response?.data?.error || 'Unexpected error occurred';
     }
-  };
-  
+};
