@@ -8,7 +8,12 @@ const UserModel = require('./models/User');
 
 const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?ssl=true`,
-  { logging: false, native: false }
+  {
+    dialect: 'postgres',
+    dialectModule: require('pg'),
+    logging: false,
+    native: false
+  }
 );
 
 FavoriteModel(sequelize);
