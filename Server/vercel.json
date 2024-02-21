@@ -14,7 +14,9 @@
   ],
   "functions": {
     "preBuild": {
-      "command": "npm install pg"
+      "npm": {
+        "dependencies": ["pg"]
+      }
     }
   }
 }
