@@ -7,12 +7,20 @@ const FavoriteModel = require('./models/Favorite');
 const UserModel = require('./models/User');
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}?ssl=true`,
+  `postgres://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`,
+  
   {
     dialect: 'postgres',
     dialectModule: require('pg'),
     logging: false,
-    native: false
+    native: false,
+    ssl: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }  
   }
 );
 
